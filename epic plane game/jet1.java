@@ -2,6 +2,15 @@ import greenfoot.*;
 
 public class jet1 extends Actor
 {
+    //cooldown vars
+    private boolean readEnter = true;
+    private Cooldown myCooldownmissil;
+    
+    public jet1()
+    {
+        myCooldownmissil = new Cooldown();
+    }
+    
     public void act()
     {
         move(4);
@@ -25,7 +34,10 @@ public class jet1 extends Actor
         
         if ("space".equals(Greenfoot.getKey()))
         {
-            missil1();
+            if(myCooldownmissil.Cooldownmissil())
+            {
+                missil1();
+            }
         }
     }
     

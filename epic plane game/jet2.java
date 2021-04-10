@@ -9,7 +9,6 @@ public class jet2 extends Actor
     public jet2()
     {
         myCooldownmissil = new Cooldown();
-    
     }
     
     public void act()
