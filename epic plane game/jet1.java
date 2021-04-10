@@ -25,12 +25,12 @@ public class jet1 extends Actor
         
         if ("space".equals(Greenfoot.getKey()))
         {
-            fire1();
+            missil1();
         }
     }
     
     //skyd missil
-    public void fire1()
+    public void missil1()
     {
         missil1 missil1 = new missil1();
         getWorld().addObject(missil1, getX(), getY());

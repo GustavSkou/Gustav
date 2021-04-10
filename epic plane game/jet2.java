@@ -2,7 +2,15 @@ import greenfoot.*;
 
 public class jet2 extends Actor
 {
+    //cooldown vars
     private boolean readEnter = true;
+    private Cooldown myCooldownmissil;
+    
+    public jet2()
+    {
+        myCooldownmissil = new Cooldown();
+    
+    }
     
     public void act()
     {
@@ -30,19 +38,40 @@ public class jet2 extends Actor
         
         if(Greenfoot.isKeyDown("enter") && readEnter)
         {
-            fire2();
+            
+            
+            if(myCooldownmissil.Cooldownmissil())
+            {
+                missil2();
+            }
             readEnter = false;
+            
+            /*
+            //cooldown
+            final long cooldownTime = 2000;
+            long time = System.currentTimeMillis();
+            if (time > timePressed + cooldownTime)
+            {
+                missil2();
+                
+                timePressed = time;
+                readEnter = false;
+            }
+            */
         }
     }
     
     //skyd missil
-    public void fire2()
+    private void missil2()
     {
         missil2 missil2 = new missil2();
         getWorld().addObject(missil2, getX(), getY());
         missil2.setRotation(getRotation());
-        missil2.move(60);
+        missil2.move(60);           
     }
+    
+    
+}
     
     /*
     public void death()
@@ -58,7 +87,6 @@ public class jet2 extends Actor
             move(3);
         }
     }
-    */
-}  
+    */  
     
 
