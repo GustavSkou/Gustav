@@ -13,6 +13,7 @@ public class Cooldown
             final long cooldownTime = 2000; //Længde der skal væntes
             long time = System.currentTimeMillis(); //Den nuværende tid gemmes 
             if (time > timePressed + cooldownTime) //Hvis den nuværende tid er højere end tiden skyd knappen blev trykket plus den tid der blev sat som cooldowntime må flyet skyde en missil
+
             { 
                 timePressed = time; //timepressed bliver sat til time's værdi for at nulstille cooldown
                 return true; //Dette If statement blive til true for at det kan bruges som en værdi som kan implementeres i de individuelle fly

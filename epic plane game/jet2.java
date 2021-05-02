@@ -2,18 +2,23 @@ import greenfoot.*;
 
 public class jet2 extends Actor
 {
+    //vars
+    int speed = 4;
+    
     //cooldown vars
     private boolean readEnter = true;
     private Cooldown myCooldownmissil;
-    
     public jet2()
     {
         myCooldownmissil = new Cooldown(); //Tilføjet cooldown til jet2
     }
     
+    //================================================================================
+    //  Movement
+    //================================================================================
     public void act()
     {
-        move(4);
+        move(speed);
         
         if (Greenfoot.isKeyDown("left"))
         {
@@ -23,13 +28,9 @@ public class jet2 extends Actor
         {
             turn(2);
         }
-        if (Greenfoot.isKeyDown("up"))
+        if (Greenfoot.isKeyDown("up")) //hvis man holder "up" inde øger man jet2's fart med 3
         {
-            move(9);
-        }
-        if (Greenfoot.isKeyDown("down"))
-        {
-            move(-4);
+            move(speed+3);
         }
         
         
@@ -41,22 +42,20 @@ public class jet2 extends Actor
         {
             if(myCooldownmissil.Cooldownmissil())//Cooldown bliver taget i brug
             {
-                missil2(); //Missil affyrings mekanisme bliver sat igang
+                missil2();
             }
-            readEnter = false;   
+            readEnter = false; 
         }
     }
     
-    //skyd missil
+    //================================================================================
+    //  Spawn missil
+    //================================================================================
     private void missil2()
     {
         missil2 missil2 = new missil2();
-        getWorld().addObject(missil2, getX(), getY());
-        missil2.setRotation(getRotation());
-        missil2.move(60);           
+        getWorld().addObject(missil2, getX(), getY());  //indsætter missil2 ved cordinaterne af jet2
+        missil2.setRotation(getRotation());             //sætter rotation af missil2 til det samme som jet2
+        missil2.move(60);                               //flytter missil1 60 pixels frem
     }
 }
-    
-
-
-
