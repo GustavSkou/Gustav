@@ -8,7 +8,7 @@ public class jet2 extends Actor
     
     public jet2()
     {
-        myCooldownmissil = new Cooldown();
+        myCooldownmissil = new Cooldown(); //Tilføjet cooldown til jet2
     }
     
     public void act()
@@ -32,31 +32,18 @@ public class jet2 extends Actor
             move(-4);
         }
         
+        
         if(!readEnter && !Greenfoot.isKeyDown("enter"))
             readEnter = true;
         
+        
         if(Greenfoot.isKeyDown("enter") && readEnter)
         {
-            
-            
-            if(myCooldownmissil.Cooldownmissil())
+            if(myCooldownmissil.Cooldownmissil())//Cooldown bliver taget i brug
             {
-                missil2();
+                missil2(); //Missil affyrings mekanisme bliver sat igang
             }
-            readEnter = false;
-            
-            /*
-            //cooldown
-            final long cooldownTime = 2000;
-            long time = System.currentTimeMillis();
-            if (time > timePressed + cooldownTime)
-            {
-                missil2();
-                
-                timePressed = time;
-                readEnter = false;
-            }
-            */
+            readEnter = false;   
         }
     }
     
@@ -68,24 +55,8 @@ public class jet2 extends Actor
         missil2.setRotation(getRotation());
         missil2.move(60);           
     }
-    
-    
 }
     
-    /*
-    public void death()
-    {
-        Actor jet2;
-        Actor missil1;
-        jet2 = getOneObjectAtOffset(0, 0, jet2.class);
-        missil1 = getOneObjectAtOffset(0, 0, missil1.class);
-        
-        if (missil1 != jet2)
-        {
-            turn(4);
-            move(3);
-        }
-    }
-    */  
-    
+
+
 
