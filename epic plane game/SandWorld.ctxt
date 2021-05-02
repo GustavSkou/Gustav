@@ -2,8 +2,8 @@
 comment0.target=SandWorld
 comment1.params=
 comment1.target=SandWorld()
-comment1.text=\r\n\ laver\ verden\ \r\n
-comment2.params=
-comment2.target=void\ spawn()
-comment2.text=\r\n\ Objecterne\ laves\ og\ inds\u00E6ttes\ i\ verden\r\n
-numComments=3
+comment2.params=start\ end
+comment2.target=int\ getRandomNumber(int,\ int)
+comment3.params=
+comment3.target=void\ spawn()
+numComments=4

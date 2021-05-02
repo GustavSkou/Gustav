@@ -4,33 +4,36 @@ public class missil1 extends Actor
 {
     public void act()
     {
-        Actor jet2;
+        move(20);
+        
+        //henter actors
+        Actor jet2; 
         Actor missil1;
+        //henter cordinaterne
         jet2 = getOneObjectAtOffset(0, 0, jet2.class);
         missil1 = getOneObjectAtOffset(0, 0, missil1.class);
         
-        //død
-        if (missil1 != jet2)
+        //================================================================================
+        //  Death
+        //================================================================================
+        if (missil1 != jet2) //hvis cordinaterne for "missil2" og "jet1" er ens
         {
             World world;
             world = getWorld();
-            world.removeObject(jet2);
-            world.removeObject(missil1); // virker ikke
+            world.removeObject(jet2);               //jet1 fjernes
             BigBoom boom = new BigBoom();
-            world.addObject(boom, getX(), getY());
-            Greenfoot.stop();
-        }
-        else
-        {
-            move(20);
+            world.addObject(boom, getX(), getY());  //"boom" indsætter på de samme cordinater
+            Greenfoot.stop();                       //spillet stoppes
         }
         
-        //fjernes og erstattes ved edgen med "Boom"
+        //================================================================================
+        //  Edge
+        //================================================================================
         if (isAtEdge())
         {
             Boom boom = new Boom();
-            getWorld().addObject(boom, getX(), getY());
-            getWorld().removeObject(this);
+            getWorld().addObject(boom, getX(), getY()); //"boom" bliver indsæt ved cordinaterne som missil1 var ved
+            getWorld().removeObject(this);              // missil2 fjernes
         }
     }   
 }

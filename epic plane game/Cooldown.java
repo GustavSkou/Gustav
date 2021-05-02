@@ -9,7 +9,7 @@ public class Cooldown
     {
         {
             //cooldown
-            final long cooldownTime = 2000;
+            final long cooldownTime = 1500;
             long time = System.currentTimeMillis();
             if (time > timePressed + cooldownTime)
             { 
