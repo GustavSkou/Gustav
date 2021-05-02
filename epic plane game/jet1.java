@@ -8,9 +8,10 @@ public class jet1 extends Actor
     //cooldown vars
     private boolean readEnter = true;
     private Cooldown myCooldownmissil;
+
     public jet1()
     {
-        myCooldownmissil = new Cooldown();
+        myCooldownmissil = new Cooldown(); //Tilføjet cooldown til jet1
     }
     
     //================================================================================
@@ -35,9 +36,9 @@ public class jet1 extends Actor
         
         if ("space".equals(Greenfoot.getKey()))
         {
-            if(myCooldownmissil.Cooldownmissil())
+            if(myCooldownmissil.Cooldownmissil()) //Cooldown bliver taget i brug
             {
-                missil1();
+                missil1(); //Missil affyrings mekanisme bliver sat igang
             }
         }
     }

@@ -10,7 +10,7 @@ public class jet2 extends Actor
     private Cooldown myCooldownmissil;
     public jet2()
     {
-        myCooldownmissil = new Cooldown();
+        myCooldownmissil = new Cooldown(); //Tilføjet cooldown til jet2
     }
     
     //================================================================================
@@ -33,29 +33,18 @@ public class jet2 extends Actor
             move(speed+3);
         }
         
+        
         if(!readEnter && !Greenfoot.isKeyDown("enter"))
             readEnter = true;
         
+        
         if(Greenfoot.isKeyDown("enter") && readEnter)
         {
-            if(myCooldownmissil.Cooldownmissil())
+            if(myCooldownmissil.Cooldownmissil())//Cooldown bliver taget i brug
             {
                 missil2();
             }
-            readEnter = false;
-            
-            /*
-            //cooldown
-            final long cooldownTime = 1500;
-            long time = System.currentTimeMillis();
-            if (time > timePressed + cooldownTime)
-            {
-                missil2();
-                
-                timePressed = time;
-                readEnter = false;
-            }
-            */
+            readEnter = false; 
         }
     }
     
